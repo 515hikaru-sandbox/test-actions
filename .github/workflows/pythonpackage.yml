@@ -14,9 +14,9 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+        curl -o get-poetry.py -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py
+        python get-poetry.py --preview
         source $HOME/.poetry/env
-        poetry self:update --preview
         poetry install
     - name: Test with pytest
       run: |
